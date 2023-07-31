@@ -33,9 +33,7 @@ class M_log extends CI_Model {
 				break;
 		}
 
-		if (count($where_log) > 0) {
-			$query_where_log = "WHERE " . implode(" AND ", $where_log);
-		}
+		if (count($where_log) > 0) $query_where_log = "WHERE " . implode(" AND ", $where_log);
 
 		$main_query = "SELECT tl.timestamp, tl.log, cu.nama AS nama_user, cu.privileges
 		FROM

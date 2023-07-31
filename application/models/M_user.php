@@ -12,6 +12,10 @@ class M_user extends CI_Model {
 		return $this->db->where('deleted_at', NULL)->get('cms_users');
 	}
 
+	public function get_verificator() {
+		return $this->db->where('privileges', 'verificator')->where('deleted_at', NULL)->get('cms_users')->result_array();
+	}
+
 	public function check_username_unique($username, $id = NULL) {
 		if ($id != NULL) $this->db->where('id <>', $id);
 		$check = $this->db->where('deleted_at', NULL)->where('username', $username)->get('cms_users');

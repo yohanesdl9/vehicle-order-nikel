@@ -5,7 +5,7 @@ class User extends CI_Controller {
 
 	var $errors = [
 		'required' => '%s wajib diisi.',
-		'unique' => '%s sudah digunakan oleh user lain'
+		'unique' => '%s sudah digunakan oleh user lain.'
 	];
 
 	public function __construct() {

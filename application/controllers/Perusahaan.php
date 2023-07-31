@@ -45,7 +45,7 @@ class Perusahaan extends CI_Controller {
 	public function insert() {
 		$data = $this->input->post();
 		$data['created_at'] = date('Y-m-d H:i:s');
-		$data['created_by'] = $this->session->userdata('name');
+		$data['created_by'] = $this->session->userdata('nama');
 		$proc = $this->M_perusahaan->insert($data);
 		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil menambahkan data', 'Gagal menambahkan data. Terjadi kesalahan');
 		if ($proc) $this->M_app->insertLogAktivitas('Menambahkan data perusahaan rental kendaraan');
@@ -57,7 +57,7 @@ class Perusahaan extends CI_Controller {
 		$id = $data['id_perusahaan'];
 		unset($data['id_perusahaan']);
 		$data['updated_at'] = date('Y-m-d H:i:s');
-		$data['updated_by'] = $this->session->userdata('name');
+		$data['updated_by'] = $this->session->userdata('nama');
 		$proc = $this->M_perusahaan->update($id, $data);
 		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil mengubah data', 'Gagal mengubah data. Terjadi kesalahan');
 		if ($proc) $this->M_app->insertLogAktivitas("Mengubah data perusahaan rental kendaraan dengan id = $id");
