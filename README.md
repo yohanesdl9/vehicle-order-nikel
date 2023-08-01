@@ -33,7 +33,7 @@
 Karena di project ini menggunakan library dari Composer, sebelum menginstal aplikasi web ini, perhatikan hal berikut :
 
 1. Pastikan Composer sudah terinstal di komputer Anda. Jika belum, Anda bisa mendownload Composer di link https://getcomposer.org/download dan menginstalnya.
-2. Untuk menginstal semua dependencies yang ada di project ini, buka Visual Studio Code, kemudian buka folder root project ini. Buka Terminal (dengan memencet tombol Ctrl+`atau View > Terminal), dan ketikkan perintah`composer update`.
+2. Untuk menginstal semua dependencies yang ada di project ini, buka Visual Studio Code, kemudian buka folder root project ini. Buka Terminal (dengan memencet tombol Ctrl+\` atau View > Terminal), dan ketikkan perintah `composer update`.
 
 ## Panduan Singkat Penggunaan Aplikasi
 
