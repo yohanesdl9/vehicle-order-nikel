@@ -29,7 +29,7 @@
 							<div class="form-group row">
 								<div class="col-md-3">
 									<div class="form-check mt-2">
-										<?= form_radio('mode_filter', 'periode', false, ['class' => 'form-check-input']) ?>
+										<?= form_radio('mode_filter', 'periode', true, ['class' => 'form-check-input']) ?>
 										<?= form_label('Periode Tanggal', '', ['class' => 'form-check-label']) ?>
 									</div>
 								</div>
@@ -44,7 +44,7 @@
 							<div class="form-group row">
 								<div class="col-md-3">
 									<div class="form-check mt-2">
-										<?= form_radio('mode_filter', 'tanggal', true, ['class' => 'form-check-input']) ?>
+										<?= form_radio('mode_filter', 'tanggal', false, ['class' => 'form-check-input']) ?>
 										<?= form_label('Tanggal ', '', ['class' => 'form-check-label']) ?>
 									</div>
 								</div>
@@ -108,16 +108,16 @@
           <table class="table table-bordered table-striped table-hover" id="tablePemesanan">
             <thead>
               <tr>
-								<th class="text-center">Kode Pemesanan</th>
-                <th class="text-center">Tanggal Pemesanan</th>
-								<th class="text-center">Tanggal Pemakaian</th>
-                <th class="text-center">Pemesan</th>
-                <th class="text-center">Driver</th>
-								<th class="text-center">Kendaraan</th>
-								<th class="text-center">Verifikator</th>
-                <th class="text-center">Status Approval Verifikator</th>
-								<th class="text-center">Status Approval Admin</th>
-								<th class="text-center">Aksi</th>
+								<th class="text-center align-middle">Kode Pemesanan</th>
+                <th class="text-center align-middle">Tanggal Pemesanan</th>
+								<th class="text-center align-middle">Tanggal Pemakaian</th>
+                <th class="text-center align-middle">Pemesan</th>
+                <th class="text-center align-middle">Driver</th>
+								<th class="text-center align-middle">Kendaraan</th>
+								<th class="text-center align-middle">Verifikator</th>
+                <th class="text-center align-middle">Status Approval Verifikator</th>
+								<th class="text-center align-middle">Status Approval Admin</th>
+								<th class="text-center align-middle">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -129,11 +129,16 @@
 	</div>
 </div>
 <?php $this->load->view('template/modal', ['id' => 'insertPemesanan', 'large' => true, 'title' => 'Tambah Pemesanan Baru', 'content' => 'modals/insert_pemesanan', 'data' => []]) ?>
+<?php $this->load->view('template/modal', ['id' => 'verifikasiVerifikator', 'large' => false, 'title' => 'Verifikasi Pemesanan', 'content' => 'modals/verifikasi_verifikator', 'data' => []]) ?>
+<?php $this->load->view('template/modal', ['id' => 'verifikasiFinal', 'large' => false, 'title' => 'Verifikasi Akhir Pemesanan', 'content' => 'modals/verifikasi_final', 'data' => []]) ?>
+<?php $this->load->view('template/modal', ['id' => 'detailPemesanan', 'large' => true, 'title' => 'Detail Pemesanan', 'content' => 'modals/detail_pemesanan', 'data' => []]) ?>
 <script>
 $(document).ready(function(){
 	$('input[name="mode_filter"]:checked').trigger('change');
 	$('input[name="is_satu_hari"]').trigger('change');
 	$('input[name="tanggal_mulai"]').trigger('change');
+	$('input[name="status_approval_verifikator"]:checked').trigger('change');
+	$('input[name="status_approval_final"]:checked').trigger('change');
 
 	var datatable = $('#tablePemesanan').DataTable({
     'responsive': true,
@@ -158,16 +163,16 @@ $(document).ready(function(){
       },
     },
     'columns': [
-			{ data : 'kode_pesan' },
-			{ data : 'tanggal_pemesanan' },
-			{ data : 'tanggal_digunakan' },
-			{ data : 'pemesan' },
-			{ data : 'driver' },
-			{ data : 'kendaraan' },
-			{ data : 'verifikator' },
-			{ data : 'status_approval_verifikator' },
-			{ data : 'status_approval_final' },
-			{ data : 'aksi' },
+			{ data : 'kode_pesan', width: '10%' },
+			{ data : 'tanggal_pemesanan', width: '10%' },
+			{ data : 'tanggal_digunakan', width: '15%' },
+			{ data : 'pemesan', width: '10%' },
+			{ data : 'driver', width: '10%' },
+			{ data : 'kendaraan', width: '10%' },
+			{ data : 'verifikator', width: '10%' },
+			{ data : 'status_approval_verifikator', width: '7%' },
+			{ data : 'status_approval_final', width: '7%' },
+			{ data : 'aksi', width: '6%' },
     ],
     'columnDefs': [
       {
@@ -227,6 +232,46 @@ $('#formInsertPemesanan').submit(function(e){
 	runFormValidation(e, '#formInsertPemesanan', '<?= base_url('pemesanan/validation') ?>');
 });
 
+$('#formVerifikasiVerifikator').submit(function(e){
+	var status_verifikasi = $('input[name="status_approval_verifikator"]:checked').val();
+	var alasan_penolakan = $('textarea[name="reason_rejected_verifikator"]').val();
+	if (status_verifikasi == 2 && alasan_penolakan == '') {
+		e.preventDefault();
+		Swal.fire({
+			icon: 'error',
+			title: 'Oh Snap!',
+			text: 'Harap masukkan alasan pesanan ini ditolak'
+		});
+	} else {
+		$(this).unbind('submit').submit();
+	}
+});
+
+$('#formVerifikasiFinal').submit(function(e){
+	var status_verifikasi = $('input[name="status_approval_final"]:checked').val();
+	var alasan_penolakan = $('textarea[name="reason_rejected_final"]').val();
+	if (status_verifikasi == 2 && alasan_penolakan == '') {
+		e.preventDefault();
+		Swal.fire({
+			icon: 'error',
+			title: 'Oh Snap!',
+			text: 'Harap masukkan alasan pesanan ini ditolak'
+		});
+	} else {
+		$(this).unbind('submit').submit();
+	}
+});
+
+$('input[name="status_approval_verifikator"]').change(function(){
+	var value = $(this).val();
+	$('textarea[name="reason_rejected_verifikator"]').attr('disabled', value == 1);
+});
+
+$('input[name="status_approval_final"]').change(function(){
+	var value = $(this).val();
+	$('textarea[name="reason_rejected_final"]').attr('disabled', value == 1);
+});
+
 $('input[name="is_satu_hari"]').change(function(){
 	var checked = $(this).is(':checked');
 	var selector = $(this).closest('form').attr('id');
@@ -243,6 +288,77 @@ $('input[name="tanggal_mulai"]').change(function(){
 		$('#' + selector + ' input[name="tanggal_selesai"]').attr('min', new_limit_date);
 		if ($('#' + selector + ' input[name="tanggal_selesai"]').val() != '') $('#' + selector + ' input[name="tanggal_selesai"]').val(new_limit_date);
 	}
-	// $('#' + selector + ' input[name="tanggal_selesai"]').attr('disabled', checked);
 });
+
+function detailPemesanan(id){
+	$.get('<?= base_url('pemesanan/get/') ?>' + id, function(result, status){
+    if (status == 'success') {
+      var data = JSON.parse(result);
+			var verifikasi = {};
+			var not_used = ['verifikator', 'status_approval_verifikator','status_approval_final','tanggal_approval_verifikator','tanggal_approval_final','reason_rejected_verifikator','reason_rejected_final'];
+			$.each(not_used, function(index, value) {
+				verifikasi[value] = data[value];
+				delete data[value];
+			});
+			$.each(data, function(index, value) {
+				$('#tableInfoDetail tr #'+index+'').html(value);
+			});
+			console.log(verifikasi);
+			$.each(verifikasi, function(index, value) {
+				$('#tableStatusVerifikasi tr #'+index+'').html(value);
+			});
+      $('#detailPemesanan').modal('show');
+    } else {
+      Swal.fire({
+        title: 'Oops...',
+        text: 'Gagal mengambil data',
+        icon: 'error'
+      });
+    }
+  });
+}
+
+function statusVerifikasiAwal(id) {
+	$.get('<?= base_url('pemesanan/get/') ?>' + id, function(result, status){
+    if (status == 'success') {
+      var data = JSON.parse(result);
+			$('#formVerifikasiVerifikator input[name="id_pemesanan"]').val(id);
+			$('#formVerifikasiVerifikator input[name="kode_pesan"]').val(data.kode_pesan);
+			var not_used = ['status_approval_verifikator','status_approval_final','tanggal_approval_verifikator','tanggal_approval_final','reason_rejected_verifikator','reason_rejected_final'];
+			not_used.forEach(e => delete data[e]);
+			$.each(data, function(index, value) {
+				$('#tableInfoVerifikator tr #'+index+'').html(value);
+			});
+      $('#verifikasiVerifikator').modal('show');
+    } else {
+      Swal.fire({
+        title: 'Oops...',
+        text: 'Gagal mengambil data',
+        icon: 'error'
+      });
+    }
+  });
+}
+
+function statusVerifikasiFinal(id) {
+	$.get('<?= base_url('pemesanan/get/') ?>' + id, function(result, status){
+    if (status == 'success') {
+      var data = JSON.parse(result);
+			$('#formVerifikasiFinal input[name="id_pemesanan"]').val(id);
+			$('#formVerifikasiFinal input[name="kode_pesan"]').val(data.kode_pesan);
+			var not_used = ['status_approval_final','tanggal_approval_final','reason_rejected_verifikator','reason_rejected_final'];
+			not_used.forEach(e => delete data[e]);
+			$.each(data, function(index, value) {
+				$('#tableInfoFinal tr #'+index+'').html(value);
+			});
+      $('#verifikasiFinal').modal('show');
+    } else {
+      Swal.fire({
+        title: 'Oops...',
+        text: 'Gagal mengambil data',
+        icon: 'error'
+      });
+    }
+  });
+}
 </script>

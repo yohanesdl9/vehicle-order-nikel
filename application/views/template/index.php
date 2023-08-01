@@ -115,8 +115,13 @@
     </div>
     <div class="left-sidenav">
       <ul class="metismenu left-sidenav-menu">
+				<?php $to_do = $this->M_app->get_pemesanan_to_verify(); ?>
 				<li <?= str_replace(base_url(), '', current_url()) == 'dashboard' ? 'class="mm-active"' : '' ?>><a href="<?= base_url('dashboard') ?>"><i class="ti-check-box"></i><span>Dashboard</span></a></li>
-				<li <?= str_replace(base_url(), '', current_url()) == 'pemesanan' ? 'class="mm-active"' : '' ?>><a href="<?= base_url('pemesanan') ?>"><i class="fas fa-sticky-note"></i><span>Pesan Kendaraan</span></a></li>
+				<li <?= str_replace(base_url(), '', current_url()) == 'pemesanan' ? 'class="mm-active"' : '' ?>>
+					<a href="<?= base_url('pemesanan') ?>"><i class="fas fa-sticky-note"></i>
+						<span>Pesan Kendaraan <?= $to_do > 0 ? ('<span class="right badge badge-danger">' . $to_do . '</span>') : '' ?></span>
+					</a>
+				</li>
 				<?php if ($this->session->userdata('privileges') == 'admin') { ?>
         <li class="navbar-header">Admin</li>
 				<li <?= str_replace(base_url(), '', current_url()) == 'kendaraan' ? 'class="mm-active"' : '' ?>><a href="<?= base_url('kendaraan') ?>"><i class="fas fa-car-alt"></i><span>Kendaraan</span></a></li>

@@ -27,6 +27,10 @@ class Pemesanan extends CI_Controller {
 		]);
 	}
 
+	public function get($id) {
+		echo json_encode($this->M_pemesanan->get($id));
+	}
+
 	public function validation() {
 		$input = $this->input->post();
 		$validation = [
@@ -64,7 +68,33 @@ class Pemesanan extends CI_Controller {
 		$input['created_by'] = $this->session->userdata('nama');
 		$proc = $this->M_pemesanan->insert($input);
 		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil menambahkan data', 'Gagal menambahkan data. Terjadi kesalahan');
-		if ($proc) $this->M_app->insertLogAktivitas('Menambahkan data pemesanan');
+		if ($proc) $this->M_app->insertLogAktivitas('Menambahkan data pemesanan kode ' . $input['kode_pesan']);
+		redirect('pemesanan');
+	}
+
+	public function verifikasi_verifikator(){
+		$data = $this->input->post();
+		$id = $data['id_pemesanan'];
+		$kode = $data['kode_pesan'];
+		foreach ($data as $key => $value) if ($value == '') unset($data[$key]);
+		unset($data['id_pemesanan'], $data['kode_pesan']);
+		$data['tanggal_approval_verifikator'] = date('Y-m-d H:i:s');
+		$proc = $this->M_pemesanan->update($id, $data);
+		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil mengubah data', 'Gagal mengubah data. Terjadi kesalahan');
+		if ($proc) $this->M_app->insertLogAktivitas('Memverifikasi tahap pertama data pemesanan kode ' . $kode);
+		redirect('pemesanan');
+	}
+
+	public function verifikasi_final(){
+		$data = $this->input->post();
+		$id = $data['id_pemesanan'];
+		$kode = $data['kode_pesan'];
+		foreach ($data as $key => $value) if ($value == '') unset($data[$key]);
+		unset($data['id_pemesanan'], $data['kode_pesan']);
+		$data['tanggal_approval_final'] = date('Y-m-d H:i:s');
+		$proc = $this->M_pemesanan->update($id, $data);
+		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil mengubah data', 'Gagal mengubah data. Terjadi kesalahan');
+		if ($proc) $this->M_app->insertLogAktivitas('Memverifikasi tahap akhir data pemesanan kode ' . $kode);
 		redirect('pemesanan');
 	}
 

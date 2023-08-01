@@ -32,6 +32,15 @@ class M_app extends CI_Model {
 		]);
 	}
 
+	function get_pemesanan_to_verify() {
+		$this->load->model('M_dashboard');
+		// Untuk tampilan di sidebar menu, jika ada pemesanan yang perlu ditinjau
+		if ($this->session->userdata('privileges') == 'admin') {
+			return $this->M_dashboard->get_pemesanan_by_approval_status(1, 0);
+		} else {
+			return $this->M_dashboard->get_pemesanan_by_approval_status(0, 0);
+		}
+	}
 }
 
 /* End of file M_app.php */

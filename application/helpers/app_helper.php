@@ -75,11 +75,15 @@ function timeIndo($data) {
 }
 
 function datetimeIndo($data) {
-  $x_data = explode(" ", $data);
-  $date = dateIndo($x_data[0]);
-  $time = timeIndo($x_data[1]);
-  $output = $date." - ".$time;
-
-  return $output;
+	if ($data == "") {
+		return "";
+	} else {
+		$x_data = explode(" ", $data);
+		$date = dateIndo($x_data[0]);
+		$time = timeIndo($x_data[1]);
+		$output = $date." - ".$time;
+	
+		return $output;
+	}
 }
 ?>
