@@ -95,8 +95,52 @@ class Kendaraan extends CI_Controller {
 			'title' => 'Riwayat Konsumsi BBM Kendaraan',
 			'content' => 'konsumsi_bbm',
 			'kendaraan' => $this->M_kendaraan->get($id)->row_array(),
-			'konsumsi' => $this->M_konsumsi_bbm->get($id)->result_array()
+			'konsumsi' => $this->M_konsumsi_bbm->get($id)
 		]);
+	}
+
+	public function get_konsumsi_bbm($id) {
+		echo json_encode($this->M_konsumsi_bbm->get_single($id));
+	}
+
+	public function konsumsi_bbm_validation() {
+		$input = $this->input->post();
+    $validation = [
+      ['field' => 'tanggal_check', 'label' => 'Tanggal Check', 'rules' => 'required', 'errors' => $this->errors],
+      ['field' => 'jarak_tempuh', 'label' => 'Jarak Tempuh', 'rules' => 'required|numeric', 'errors' => $this->errors],
+      ['field' => 'konsumsi_bbm', 'label' => 'Konsumsi BBM', 'rules' => 'required|numeric', 'errors' => $this->errors],
+    ];
+    $this->form_validation->set_rules($validation);
+    if ($this->form_validation->run()) {
+      echo json_encode(['status' => TRUE]);
+    } else {
+      $validation_errors = str_replace(".", ".<br>", strip_tags(validation_errors('', '')));
+      echo json_encode(['status' => FALSE, 'message' => $validation_errors]);
+    }
+	}
+
+	public function insert_konsumsi_bbm() {
+		$input = $this->input->post();
+		$kendaraan = $this->M_kendaraan->get($input['id_kendaraan'])->row_array();
+		$input['created_at'] = date('Y-m-d H:i:s');
+		$input['created_by'] = $this->session->userdata('nama');
+		$proc = $this->M_konsumsi_bbm->insert($input);
+		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil menambahkan data', 'Gagal menambahkan data. Terjadi kesalahan');
+		if ($proc) $this->M_app->insertLogAktivitas('Menambahkan data konsumsi BBM kendaraan ' . $kendaraan['nomor_polisi']);
+		redirect('kendaraan/konsumsi_bbm/' . $input['id_kendaraan']);
+	}
+
+	public function update_konsumsi_bbm() {
+		$input = $this->input->post();
+		$id_konsumsi = $input['id_konsumsi_bbm'];
+		unset($input['id_konsumsi_bbm']);
+		$kendaraan = $this->M_kendaraan->get($input['id_kendaraan'])->row_array();
+		$input['updated_at'] = date('Y-m-d H:i:s');
+		$input['updated_by'] = $this->session->userdata('nama');
+		$proc = $this->M_konsumsi_bbm->update($id_konsumsi, $input);
+		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil mengubah data', 'Gagal mengubah data. Terjadi kesalahan');
+		if ($proc) $this->M_app->insertLogAktivitas('Mengubah data konsumsi BBM kendaraan ' . $kendaraan['nomor_polisi'] . ' dengan id = ' . $id_konsumsi);
+		redirect('kendaraan/konsumsi_bbm/' . $input['id_kendaraan']);
 	}
 
 	public function jadwal_service($id) {
@@ -104,8 +148,52 @@ class Kendaraan extends CI_Controller {
 			'title' => 'Jadwal Service Kendaraan',
 			'content' => 'jadwal_service',
 			'kendaraan' => $this->M_kendaraan->get($id)->row_array(),
-			'konsumsi' => $this->M_jadwal_service->get($id)->result_array()
+			'service' => $this->M_jadwal_service->get($id)
 		]);
+	}
+
+	public function get_jadwal_service($id) {
+		echo json_encode($this->M_jadwal_service->get_single($id));
+	}
+
+	public function jadwal_service_validation() {
+		$input = $this->input->post();
+    $validation = [
+      ['field' => 'tanggal_service', 'label' => 'Tanggal Service', 'rules' => 'required', 'errors' => $this->errors],
+      ['field' => 'keterangan_service', 'label' => 'Keterangan Service', 'rules' => 'required', 'errors' => $this->errors],
+      ['field' => 'lokasi_service', 'label' => 'Lokasi Service', 'rules' => 'required', 'errors' => $this->errors],
+    ];
+    $this->form_validation->set_rules($validation);
+    if ($this->form_validation->run()) {
+      echo json_encode(['status' => TRUE]);
+    } else {
+      $validation_errors = str_replace(".", ".<br>", strip_tags(validation_errors('', '')));
+      echo json_encode(['status' => FALSE, 'message' => $validation_errors]);
+    }
+	}
+
+	public function insert_jadwal_service() {
+		$input = $this->input->post();
+		$kendaraan = $this->M_kendaraan->get($input['id_kendaraan'])->row_array();
+		$input['created_at'] = date('Y-m-d H:i:s');
+		$input['created_by'] = $this->session->userdata('nama');
+		$proc = $this->M_jadwal_service->insert($input);
+		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil menambahkan data', 'Gagal menambahkan data. Terjadi kesalahan');
+		if ($proc) $this->M_app->insertLogAktivitas('Menambahkan jadwal service BBM kendaraan ' . $kendaraan['nomor_polisi']);
+		redirect('kendaraan/jadwal_service/' . $input['id_kendaraan']);
+	}
+
+	public function update_jadwal_service() {
+		$input = $this->input->post();
+		$id_konsumsi = $input['id_jadwal_service'];
+		unset($input['id_jadwal_service']);
+		$kendaraan = $this->M_kendaraan->get($input['id_kendaraan'])->row_array();
+		$input['updated_at'] = date('Y-m-d H:i:s');
+		$input['updated_by'] = $this->session->userdata('nama');
+		$proc = $this->M_jadwal_service->update($id_konsumsi, $input);
+		$this->M_app->setAlertIfSuccessOrFailed($proc, 'Berhasil mengubah data', 'Gagal mengubah data. Terjadi kesalahan');
+		if ($proc) $this->M_app->insertLogAktivitas('Mengubah data jadwal service kendaraan ' . $kendaraan['nomor_polisi'] . ' dengan id = ' . $id_konsumsi);
+		redirect('kendaraan/jadwal_service/' . $input['id_kendaraan']);
 	}
 
 }

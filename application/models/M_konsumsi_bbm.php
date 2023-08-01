@@ -7,9 +7,12 @@ class M_konsumsi_bbm extends CI_Model {
 		parent::__construct();
 	}
 	
-	public function get($id_kendaraan, $id = '') {
-		if ($id != '') $this->db->where('id', $id);
-		return $this->db->where('id_kendaraan', $id)->where('deleted_at', NULL)->get('tb_kendaraan_konsumsi_bbm');
+	public function get($id_kendaraan) {
+		return $this->db->where('id_kendaraan', $id_kendaraan)->where('deleted_at', NULL)->get('tb_kendaraan_konsumsi_bbm')->result_array();
+	}
+
+	public function get_single($id) {
+		return $this->db->where('id', $id)->get('tb_kendaraan_konsumsi_bbm')->row_array();
 	}
 
 	public function insert($data) {
