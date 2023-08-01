@@ -32,7 +32,7 @@ CREATE TABLE `cms_users` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `cms_users` (
 
 LOCK TABLES `cms_users` WRITE;
 /*!40000 ALTER TABLE `cms_users` DISABLE KEYS */;
-INSERT INTO `cms_users` VALUES (1,'Admin','admin','$2y$10$nYIuhZlkit2ORXmgm9m.K.nYD6YRX1LjhOb5cuqP79tNNrEElGOxq','admin','2023-07-31 11:23:16','2023-07-31 17:59:18',NULL),(2,'Verifikator 1','verificator1','$2y$10$WDfZAELULr2aD9vNIPmVm.bBt/UYGaQ4qCieJVOPKQnW6PH.FramG','verificator','2023-07-31 11:23:43','2023-07-31 14:38:09',NULL),(3,'Admin 2','admin','$2y$10$F5wM5Y2wwJKT2ajCmqoMF.vj0rTOj.rHSdhnnRgjQ18F9L6pgiyva','admin','2023-07-31 17:59:27',NULL,'2023-07-31 17:59:34'),(4,'Admin 2','admin','$2y$10$5zyEbref8C.J5dGssBtJZe7sTerH9OScAHsEMnxoAbotdEy0GoQ2O','admin','2023-07-31 18:00:24',NULL,'2023-07-31 18:00:58'),(5,'Admin 2','admin','$2y$10$MSTu8SSJwPMlNQLHzO2wg.fT77ISWQp0tFuuAozO.g4Bgur7rji2y','admin','2023-07-31 18:01:09',NULL,'2023-07-31 18:01:16'),(6,'Admin 2','admin','$2y$10$2tDNwFwKWsdXKsAMAeQ87.6wtrfIPfD2TsYm7RjmFU0PTKgpaLCKi','admin','2023-07-31 18:01:41',NULL,'2023-07-31 18:02:02'),(7,'Admin 2','admin','$2y$10$RF605LknBDYFrga4Ha1KB.p8nKkGLoQEJ80WXWl0cB0hgL5gjyI4.','admin','2023-07-31 18:02:33',NULL,'2023-07-31 18:03:15'),(8,'Admin 1','admin','$2y$10$JWPGRqgJvArGsHbz4FOUGuE9VDcXlZ/ARTY/1n7S3oU1SpBC8NrFu','admin','2023-07-31 18:03:24',NULL,'2023-07-31 18:03:31'),(9,'Admin','admin2','$2y$10$k896WgEzeF4rLOLQTGMneeihlbXDmccPtSqVVLHNEsK6DMZqgMOP6','admin','2023-07-31 18:08:59','2023-07-31 18:24:41',NULL),(10,'Admin 3','admin3','$2y$10$AhTMV0YVvbvT0tFfuUir2eEtlQq1Kxge8zvGOH3kRXZXW/V8K6xh6','admin','2023-07-31 18:24:55',NULL,NULL);
+INSERT INTO `cms_users` VALUES (1,'Admin','admin','$2y$10$bMxaW8IbMOkhE5YmqoEUo.U.U2JVUtk6jUCsWZjwmLhY/PG1PZooO','admin','2023-07-31 11:23:16','2023-07-31 17:59:18',NULL),(2,'Verifikator 1','verificator1','$2y$10$WDfZAELULr2aD9vNIPmVm.bBt/UYGaQ4qCieJVOPKQnW6PH.FramG','verificator','2023-07-31 11:23:43','2023-07-31 14:38:09',NULL),(3,'Admin 2','admin','$2y$10$F5wM5Y2wwJKT2ajCmqoMF.vj0rTOj.rHSdhnnRgjQ18F9L6pgiyva','admin','2023-07-31 17:59:27',NULL,'2023-07-31 17:59:34'),(4,'Admin 2','admin','$2y$10$5zyEbref8C.J5dGssBtJZe7sTerH9OScAHsEMnxoAbotdEy0GoQ2O','admin','2023-07-31 18:00:24',NULL,'2023-07-31 18:00:58'),(5,'Admin 2','admin','$2y$10$MSTu8SSJwPMlNQLHzO2wg.fT77ISWQp0tFuuAozO.g4Bgur7rji2y','admin','2023-07-31 18:01:09',NULL,'2023-07-31 18:01:16'),(6,'Admin 2','admin','$2y$10$2tDNwFwKWsdXKsAMAeQ87.6wtrfIPfD2TsYm7RjmFU0PTKgpaLCKi','admin','2023-07-31 18:01:41',NULL,'2023-07-31 18:02:02'),(7,'Admin 2','admin','$2y$10$RF605LknBDYFrga4Ha1KB.p8nKkGLoQEJ80WXWl0cB0hgL5gjyI4.','admin','2023-07-31 18:02:33',NULL,'2023-07-31 18:03:15'),(8,'Admin 1','admin','$2y$10$JWPGRqgJvArGsHbz4FOUGuE9VDcXlZ/ARTY/1n7S3oU1SpBC8NrFu','admin','2023-07-31 18:03:24',NULL,'2023-07-31 18:03:31'),(9,'Admin','admin2','$2y$10$k896WgEzeF4rLOLQTGMneeihlbXDmccPtSqVVLHNEsK6DMZqgMOP6','admin','2023-07-31 18:08:59','2023-07-31 18:24:41',NULL),(10,'Admin 3','admin3','$2y$10$AhTMV0YVvbvT0tFfuUir2eEtlQq1Kxge8zvGOH3kRXZXW/V8K6xh6','admin','2023-07-31 18:24:55',NULL,NULL),(11,'Verifikator 2','verificator2','$2y$10$x35a6spNvDgsjY2baVhBJ.9gCk7CrYnARBcvTgO.ZeVVGgvlXDRly','verificator','2023-08-01 08:21:10',NULL,NULL);
 /*!40000 ALTER TABLE `cms_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,6 +96,7 @@ CREATE TABLE `tb_kendaraan_jadwal_service` (
   `id_kendaraan` int(11) DEFAULT NULL,
   `tanggal_service` date DEFAULT NULL,
   `keterangan_service` text DEFAULT NULL,
+  `lokasi_service` varchar(100) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -104,7 +105,7 @@ CREATE TABLE `tb_kendaraan_jadwal_service` (
   `deleted_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_kendaraan` (`id_kendaraan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,6 +114,7 @@ CREATE TABLE `tb_kendaraan_jadwal_service` (
 
 LOCK TABLES `tb_kendaraan_jadwal_service` WRITE;
 /*!40000 ALTER TABLE `tb_kendaraan_jadwal_service` DISABLE KEYS */;
+INSERT INTO `tb_kendaraan_jadwal_service` VALUES (1,1,'2023-08-01','Service ganti oli dan suspensi','Mitsubishi Krama Yudha PIK','2023-08-01 18:53:28','2023-08-01 18:55:27',NULL,'Admin','Admin',NULL),(2,1,'2023-08-30','Service kaki-kaki','Mitsubishi Krama Yudha PIK','2023-08-01 18:54:50',NULL,NULL,'Admin',NULL,NULL);
 /*!40000 ALTER TABLE `tb_kendaraan_jadwal_service` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +139,7 @@ CREATE TABLE `tb_kendaraan_konsumsi_bbm` (
   `deleted_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_kendaraan` (`id_kendaraan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,6 +148,7 @@ CREATE TABLE `tb_kendaraan_konsumsi_bbm` (
 
 LOCK TABLES `tb_kendaraan_konsumsi_bbm` WRITE;
 /*!40000 ALTER TABLE `tb_kendaraan_konsumsi_bbm` DISABLE KEYS */;
+INSERT INTO `tb_kendaraan_konsumsi_bbm` VALUES (1,1,'2023-08-01',500.4,19.6,'2023-08-01 18:32:49','2023-08-01 18:53:04',NULL,'Admin','Admin',NULL);
 /*!40000 ALTER TABLE `tb_kendaraan_konsumsi_bbm` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +166,7 @@ CREATE TABLE `tb_log` (
   `log` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cms_users` (`id_cms_users`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +175,7 @@ CREATE TABLE `tb_log` (
 
 LOCK TABLES `tb_log` WRITE;
 /*!40000 ALTER TABLE `tb_log` DISABLE KEYS */;
-INSERT INTO `tb_log` VALUES (4,1,'2023-07-31 13:47:09','Menambahkan data perusahaan rental kendaraan'),(5,1,'2023-07-31 13:48:28','Mengubah data perusahaan rental kendaraan dengan id = 1'),(6,1,'2023-07-31 14:02:29','Menambahkan data pegawai'),(7,1,'2023-07-31 14:02:59','Menambahkan data pegawai'),(8,1,'2023-07-31 14:03:47','Menambahkan data pegawai'),(9,1,'2023-07-31 14:04:11','Menambahkan data pegawai'),(10,1,'2023-07-31 14:08:05','Mengubah data pegawai dengan id = 4'),(11,1,'2023-07-31 14:37:51','Mengubah data user dengan id = 2'),(12,1,'2023-07-31 14:38:09','Mengubah data user dengan id = 2'),(13,1,'2023-07-31 14:38:18','Mengubah data user dengan id = 1'),(14,1,'2023-07-31 14:38:25','Mengubah data user dengan id = 1'),(15,1,'2023-07-31 14:41:32','Mengubah data user dengan id = 1'),(16,1,'2023-07-31 14:44:31','Mengubah data user dengan id = 1'),(17,1,'2023-07-31 14:44:37','Mengubah data user dengan id = 1'),(18,1,'2023-07-31 17:59:18','Mengubah data user dengan id = 1'),(19,1,'2023-07-31 17:59:27','Menambahkan data user'),(20,1,'2023-07-31 17:59:34','Menghapus data user dengan id = 3'),(21,1,'2023-07-31 18:00:24','Menambahkan data user'),(22,1,'2023-07-31 18:00:58','Menghapus data user dengan id = 4'),(23,1,'2023-07-31 18:01:09','Menambahkan data user'),(24,1,'2023-07-31 18:01:16','Menghapus data user dengan id = 5'),(25,1,'2023-07-31 18:01:41','Menambahkan data user'),(26,1,'2023-07-31 18:02:02','Menghapus data user dengan id = 6'),(27,1,'2023-07-31 18:02:33','Menambahkan data user'),(28,1,'2023-07-31 18:03:15','Menghapus data user dengan id = 7'),(29,1,'2023-07-31 18:03:24','Menambahkan data user'),(30,1,'2023-07-31 18:03:31','Menghapus data user dengan id = 8'),(31,1,'2023-07-31 18:08:59','Menambahkan data user'),(32,1,'2023-07-31 18:24:31','Mengubah data user dengan id = 9'),(33,1,'2023-07-31 18:24:41','Mengubah data user dengan id = 9'),(34,1,'2023-07-31 18:24:55','Menambahkan data user'),(35,1,'2023-07-31 19:04:29','Menambahkan data kendaraan'),(36,1,'2023-07-31 19:05:08','Menambahkan data kendaraan'),(37,1,'2023-07-31 19:09:29','Menambahkan data kendaraan'),(38,1,'2023-07-31 19:28:04','Menambahkan data kendaraan'),(39,1,'2023-07-31 19:30:21','Menghapus data kendaraan dengan id = 2'),(40,1,'2023-07-31 23:22:04','Menambahkan data pemesanan'),(41,1,'2023-07-31 23:23:15','Menambahkan data pemesanan'),(42,1,'2023-07-31 23:24:59','Menambahkan data pemesanan');
+INSERT INTO `tb_log` VALUES (4,1,'2023-07-31 13:47:09','Menambahkan data perusahaan rental kendaraan'),(5,1,'2023-07-31 13:48:28','Mengubah data perusahaan rental kendaraan dengan id = 1'),(6,1,'2023-07-31 14:02:29','Menambahkan data pegawai'),(7,1,'2023-07-31 14:02:59','Menambahkan data pegawai'),(8,1,'2023-07-31 14:03:47','Menambahkan data pegawai'),(9,1,'2023-07-31 14:04:11','Menambahkan data pegawai'),(10,1,'2023-07-31 14:08:05','Mengubah data pegawai dengan id = 4'),(11,1,'2023-07-31 14:37:51','Mengubah data user dengan id = 2'),(12,1,'2023-07-31 14:38:09','Mengubah data user dengan id = 2'),(13,1,'2023-07-31 14:38:18','Mengubah data user dengan id = 1'),(14,1,'2023-07-31 14:38:25','Mengubah data user dengan id = 1'),(15,1,'2023-07-31 14:41:32','Mengubah data user dengan id = 1'),(16,1,'2023-07-31 14:44:31','Mengubah data user dengan id = 1'),(17,1,'2023-07-31 14:44:37','Mengubah data user dengan id = 1'),(18,1,'2023-07-31 17:59:18','Mengubah data user dengan id = 1'),(19,1,'2023-07-31 17:59:27','Menambahkan data user'),(20,1,'2023-07-31 17:59:34','Menghapus data user dengan id = 3'),(21,1,'2023-07-31 18:00:24','Menambahkan data user'),(22,1,'2023-07-31 18:00:58','Menghapus data user dengan id = 4'),(23,1,'2023-07-31 18:01:09','Menambahkan data user'),(24,1,'2023-07-31 18:01:16','Menghapus data user dengan id = 5'),(25,1,'2023-07-31 18:01:41','Menambahkan data user'),(26,1,'2023-07-31 18:02:02','Menghapus data user dengan id = 6'),(27,1,'2023-07-31 18:02:33','Menambahkan data user'),(28,1,'2023-07-31 18:03:15','Menghapus data user dengan id = 7'),(29,1,'2023-07-31 18:03:24','Menambahkan data user'),(30,1,'2023-07-31 18:03:31','Menghapus data user dengan id = 8'),(31,1,'2023-07-31 18:08:59','Menambahkan data user'),(32,1,'2023-07-31 18:24:31','Mengubah data user dengan id = 9'),(33,1,'2023-07-31 18:24:41','Mengubah data user dengan id = 9'),(34,1,'2023-07-31 18:24:55','Menambahkan data user'),(35,1,'2023-07-31 19:04:29','Menambahkan data kendaraan'),(36,1,'2023-07-31 19:05:08','Menambahkan data kendaraan'),(37,1,'2023-07-31 19:09:29','Menambahkan data kendaraan'),(38,1,'2023-07-31 19:28:04','Menambahkan data kendaraan'),(39,1,'2023-07-31 19:30:21','Menghapus data kendaraan dengan id = 2'),(40,1,'2023-07-31 23:22:04','Menambahkan data pemesanan'),(41,1,'2023-07-31 23:23:15','Menambahkan data pemesanan'),(42,1,'2023-07-31 23:24:59','Menambahkan data pemesanan'),(43,1,'2023-08-01 08:21:10','Menambahkan data user'),(44,1,'2023-08-01 08:21:58','Menambahkan data pemesanan'),(45,1,'2023-08-01 08:22:33','Menambahkan data pemesanan'),(46,1,'2023-08-01 09:43:33','Menambahkan data pemesanan'),(47,2,'2023-08-01 10:26:47','Memverifikasi tahap pertama data pemesanan kode ORD/2023000001'),(48,1,'2023-08-01 10:35:24','Memverifikasi tahap akhir data pemesanan kode ORD/2023000001'),(49,2,'2023-08-01 10:38:29','Memverifikasi tahap pertama data pemesanan kode ORD/2023000002'),(50,2,'2023-08-01 10:38:58','Memverifikasi tahap pertama data pemesanan kode ORD/2023000006'),(51,2,'2023-08-01 10:41:00','Memverifikasi tahap pertama data pemesanan kode ORD/2023000003'),(52,1,'2023-08-01 12:53:29','Memverifikasi tahap akhir data pemesanan kode ORD/2023000003'),(53,11,'2023-08-01 14:34:08','Memverifikasi tahap pertama data pemesanan kode ORD/2023000004'),(54,1,'2023-08-01 14:36:10','Memverifikasi tahap akhir data pemesanan kode ORD/2023000002'),(55,1,'2023-08-01 14:36:12','Memverifikasi tahap akhir data pemesanan kode ORD/2023000004'),(56,1,'2023-08-01 18:32:49','Menambahkan data konsumsi BBM kendaraan B8764UA'),(57,1,'2023-08-01 18:53:04','Mengubah data konsumsi BBM kendaraan B8764UA dengan id = 1'),(58,1,'2023-08-01 18:53:28','Menambahkan jadwal service BBM kendaraan B8764UA'),(59,1,'2023-08-01 18:54:50','Menambahkan jadwal service BBM kendaraan B8764UA'),(60,1,'2023-08-01 18:55:27','Mengubah data jadwal service kendaraan B8764UA dengan id = 1');
 /*!40000 ALTER TABLE `tb_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,6 +230,8 @@ CREATE TABLE `tb_pemesanan_kendaraan` (
   `verifikator` int(11) DEFAULT NULL,
   `status_approval_verifikator` tinyint(4) DEFAULT NULL,
   `status_approval_final` tinyint(4) DEFAULT NULL,
+  `tanggal_approval_verifikator` datetime DEFAULT NULL,
+  `tanggal_approval_final` datetime DEFAULT NULL,
   `reason_rejected_verifikator` text DEFAULT NULL,
   `reason_rejected_final` text DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -240,7 +245,7 @@ CREATE TABLE `tb_pemesanan_kendaraan` (
   KEY `id_driver` (`id_driver`),
   KEY `verifikator` (`verifikator`),
   KEY `id_kendaraan` (`id_kendaraan`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,7 +254,7 @@ CREATE TABLE `tb_pemesanan_kendaraan` (
 
 LOCK TABLES `tb_pemesanan_kendaraan` WRITE;
 /*!40000 ALTER TABLE `tb_pemesanan_kendaraan` DISABLE KEYS */;
-INSERT INTO `tb_pemesanan_kendaraan` VALUES (1,'ORD/2023000001',2,3,1,'Kunjungan ke tambang nikel A','2023-08-02','2023-08-02',2,0,0,NULL,NULL,'2023-07-31 21:39:06',NULL,NULL,'Admin',NULL,NULL),(3,'ORD/2023000002',1,3,1,'Pengantaran material hasil tambang nikel ke kantor cabang','2023-08-04','2023-08-04',2,0,0,NULL,NULL,'2023-07-31 23:23:15',NULL,NULL,'Admin',NULL,NULL),(4,'ORD/2023000003',3,4,1,'Mengantarkan tamu dari Arab Saudi untuk perjalanan demo tambang nikel','2023-08-10','2023-08-12',2,0,0,NULL,NULL,'2023-07-31 23:24:59',NULL,NULL,'Admin',NULL,NULL);
+INSERT INTO `tb_pemesanan_kendaraan` VALUES (1,'ORD/2023000001',2,3,1,'Kunjungan ke tambang nikel A','2023-08-02','2023-08-02',2,1,1,'2023-08-01 10:34:26','2023-08-01 10:35:24',NULL,NULL,'2023-07-31 21:39:06',NULL,NULL,'Admin',NULL,NULL),(3,'ORD/2023000002',1,3,1,'Pengantaran material hasil tambang nikel ke kantor cabang','2023-08-04','2023-08-04',2,1,1,'2023-08-01 10:38:29','2023-08-01 14:36:10',NULL,NULL,'2023-07-31 23:23:15',NULL,NULL,'Admin',NULL,NULL),(4,'ORD/2023000003',3,4,1,'Mengantarkan tamu dari Arab Saudi untuk perjalanan demo tambang nikel','2023-08-10','2023-08-12',2,1,1,'2023-08-01 10:41:00','2023-08-01 12:53:29',NULL,NULL,'2023-07-31 23:24:59',NULL,NULL,'Admin',NULL,NULL),(5,'ORD/2023000004',4,4,3,'Pengantaran Dimas Bintang ke stasiun','2023-08-09','2023-08-09',11,1,1,'2023-08-01 14:34:08','2023-08-01 14:36:12',NULL,NULL,'2023-08-01 08:21:58',NULL,NULL,'Admin',NULL,NULL),(6,'ORD/2023000005',1,4,1,'Perjalanan demo aplikasi ke outlet di Jakarta','2023-08-15','2023-08-19',11,0,0,NULL,NULL,NULL,NULL,'2023-08-01 08:22:33',NULL,NULL,'Admin',NULL,NULL),(7,'ORD/2023000006',2,3,1,'Mengantar paket pemesanan ke tambang nikel D','2023-08-16','2023-08-19',2,2,0,'2023-08-01 10:38:58',NULL,'Mobil pada tanggal 18 Agustus akan disiapkan untuk service rutin',NULL,'2023-08-01 09:43:33',NULL,NULL,'Admin',NULL,NULL);
 /*!40000 ALTER TABLE `tb_pemesanan_kendaraan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -294,4 +299,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-31 23:51:49
+-- Dump completed on 2023-08-01 18:56:46
